@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>browser-amd-editor</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+</head>
+<body>
+
+<h2>Monaco Editor Sample</h2>
+<div id="container" style="margin-top: 200px; border:1px solid grey"></div>
+
+<!-- OR ANY OTHER AMD LOADER HERE INSTEAD OF loader.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.17.1/min/vs/loader.js"></script>
+<script>
+    console.log(monaco, 'monaco')
+
+    require(['https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.17.1/min/vs/editor/editor.main.js'], function() {
+        var editor = monaco.editor.create(document.getElementById('container'), {
+            value: [
+                'function x() {',
+                '\tconsole.log("Hello world!");',
+                '}'
+            ].join('\n'),
+            language: 'javascript'
+        });
+
+        console.log(editor, 'wtf')
+    });
+</script>
+</body>
+</html>
